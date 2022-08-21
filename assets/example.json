@@ -1,0 +1,10 @@
+{
+    "name": "Devfolio NFT!",
+    "symbol": "DVFL",
+    "description": "Hire me lol",
+    "seller_fee_basis_points": 5,
+    "external_url": "https://devfolio.co/",
+    "edition": "",
+    "background_color": "000000",
+    "image": "https://github.com/devfolioco/brand-assets/blob/main/Logo/Logo.png?raw=true"
+}
