@@ -1,11 +1,13 @@
 import * as anchor from "@project-serum/anchor";
 import { Program } from "@project-serum/anchor";
 import { MintNftNew } from "../target/types/mint_nft_new";
+//this is the idl, if you are from the EVM ecosystem, we call it the contract abi
+//this allows us to use our program/smart contract as a type script object
 
 describe("mint-nft-new", () => {
 
   const testNftTitle = "Devfolio NFT!";
-  const testNftSymbol = "DVFL";
+  const testNftSymbol = "DVFLxSOL";
   const testNftUri = "https://raw.githubusercontent.com/ANMOLCODES/candy-machine-ui-sugar-test/master/example.json"
 
   // Configure the client to use the local cluster.
