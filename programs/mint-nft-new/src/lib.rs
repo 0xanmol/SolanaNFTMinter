@@ -23,13 +23,14 @@ declare_id!("3dumGYjNeKEDRxxFNTNWNYhqLXcBiq62YjJHQw1TMNdn");
 //initially it is set to "Fg6...LnS" after deployement we get a custom one
 
 
-
+//main program starts here
 #[program]
 pub mod mint_nft_new {
     use super::*;
-
+    
+//mint function
     pub fn mint(
-        ctx: Context<MintNftNew>, 
+        ctx: Context<MintNftNew>, //anchor wants us to pass a struct, here named MintNftNew because that was the name of my project when I initialised it
         metadata_title: String, 
         metadata_symbol: String, 
         metadata_uri: String,
@@ -156,6 +157,9 @@ pub mod mint_nft_new {
 }
 
 
+//struct of accounts utilised
+//you may notice comments over some of them, it is neccesary to add these CHECKs when we create and unchecked accounts, it is verified by metaplex
+//some accounts here are mutable, as you can see we have mentioned the keyword 'mut' in the declaration
 #[derive(Accounts)]
 pub struct MintNftNew<'info> {
     /// CHECK: We're about to create this with Metaplex
