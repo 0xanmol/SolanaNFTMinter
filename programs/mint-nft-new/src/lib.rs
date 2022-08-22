@@ -19,8 +19,8 @@ use {
 
 //Anchor uses this declare_id to tell the rest of the program what itselves address is, what is its own program Id, 
 
-// declare_id!("3dumGYjNeKEDRxxFNTNWNYhqLXcBiq62YjJHQw1TMNdn");
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("3dumGYjNeKEDRxxFNTNWNYhqLXcBiq62YjJHQw1TMNdn");
+// declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 //once you do anchor build and anchor deploy, you get a new program-id, which once set in Anchor.toml and lib.rs, can be rebuilt and redployed using anchor build && anchor deploy
 
 
