@@ -17,10 +17,11 @@ use {
     },
 };
 
-
-declare_id!("3dumGYjNeKEDRxxFNTNWNYhqLXcBiq62YjJHQw1TMNdn");
 //Anchor uses this declare_id to tell the rest of the program what itselves address is, what is its own program Id, 
-//initially it is set to "Fg6...LnS" after deployement we get a custom one
+
+// declare_id!("3dumGYjNeKEDRxxFNTNWNYhqLXcBiq62YjJHQw1TMNdn");
+declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+//once you do anchor build and anchor deploy, you get a new program-id, which once set in Anchor.toml and lib.rs, can be rebuilt and redployed using anchor build && anchor deploy
 
 
 //main program starts here
@@ -29,8 +30,10 @@ pub mod mint_nft_new {
     use super::*;
     
 //mint function
+//anchor wants us to pass a struct, here named MintNftNew because that was the name of my project when I initialised it
+// passing in metadata info as parameters, this we can do because of anchor, without it we would have to do all kinds of monkey business    
     pub fn mint(
-        ctx: Context<MintNftNew>, //anchor wants us to pass a struct, here named MintNftNew because that was the name of my project when I initialised it
+        ctx: Context<MintNftNew>, 
         metadata_title: String, 
         metadata_symbol: String, 
         metadata_uri: String,
@@ -103,6 +106,7 @@ pub mod mint_nft_new {
         )?;
 
 //Create the metadata acc, this contrains the title, symbol and uri of the nfts. it is responsible for storing additional data attached to tokens
+//Have set metadata info as parameters of mint function so they will now be recognised down here        
         msg!("Creating metadata account...");
         msg!("Metadata account address: {}", &ctx.accounts.metadata.to_account_info().key());
         invoke(
