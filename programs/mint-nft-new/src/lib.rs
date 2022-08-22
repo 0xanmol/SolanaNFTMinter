@@ -35,7 +35,8 @@ pub mod mint_nft_new {
         metadata_symbol: String, 
         metadata_uri: String,
     ) -> Result<()> {
-
+        
+//Steps in order, create mint account
         msg!("Creating mint account...");
         msg!("Mint: {}", &ctx.accounts.mint.key());
         system_program::create_account(
@@ -50,7 +51,8 @@ pub mod mint_nft_new {
             82,
             &ctx.accounts.token_program.key(),
         )?;
-
+        
+//, then we initialize the mint acc
         msg!("Initializing mint account...");
         msg!("Mint: {}", &ctx.accounts.mint.key());
         token::initialize_mint(
@@ -66,6 +68,7 @@ pub mod mint_nft_new {
             Some(&ctx.accounts.mint_authority.key()),
         )?;
 
+//Create the token acc
         msg!("Creating token account...");
         msg!("Token Address: {}", &ctx.accounts.token_account.key());    
         associated_token::create(
@@ -83,6 +86,7 @@ pub mod mint_nft_new {
             ),
         )?;
 
+//mint the nft to the token acc
         msg!("Minting token to token account...");
         msg!("Mint: {}", &ctx.accounts.mint.to_account_info().key());   
         msg!("Token Address: {}", &ctx.accounts.token_account.key());     
@@ -98,6 +102,7 @@ pub mod mint_nft_new {
             1,
         )?;
 
+//Create the metadata acc, this contrains the title, symbol and uri of the nfts. it is responsible for storing additional data attached to tokens
         msg!("Creating metadata account...");
         msg!("Metadata account address: {}", &ctx.accounts.metadata.to_account_info().key());
         invoke(
@@ -127,6 +132,7 @@ pub mod mint_nft_new {
             ],
         )?;
 
+//Createing the master edition metadata acc, it is imp because its existence is proof of the Non-Fungibility of the token.
         msg!("Creating master edition metadata account...");
         msg!("Master edition metadata account address: {}", &ctx.accounts.master_edition.to_account_info().key());
         invoke(
