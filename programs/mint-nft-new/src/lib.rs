@@ -1,3 +1,6 @@
+//use statements
+//we are utilising anchor_lang, a lil bit of SPL and the metaplex token metadata standards
+
 use {
     anchor_lang::{
         prelude::*,
@@ -16,6 +19,9 @@ use {
 
 
 declare_id!("3dumGYjNeKEDRxxFNTNWNYhqLXcBiq62YjJHQw1TMNdn");
+//Anchor uses this declare_id to tell the rest of the program what itselves address is, what is its own program Id, 
+//initially it is set to "Fg6...LnS" after deployement we get a custom one
+
 
 
 #[program]
